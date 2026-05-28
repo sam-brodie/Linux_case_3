@@ -1,8 +1,23 @@
 def rotate_in_place(matrix):
+    # start at top left, rotate all the outermost corners
+    # repeat for the full row and this will result in the
+    # entire outermost "shell" being rotated and then move
+    # to the cell diagonally South-East of the top left and
+    # continue repeating
     n = len(matrix)
-    for r in range(n):
-        for c in range(n):
-            matrix[r][c] = matrix[n-c-1][r]
+    for r in range(int(n / 2)):
+        # Iterate through the elements in the current layer
+        for c in range(r, n - r - 1):
+            # store the top-left value
+            tmp = matrix[r][c]
+            # bottom-left to top-left
+            matrix[r][c] = matrix[n - 1 - c][r]
+            # bottom-right to bottom-left
+            matrix[n - 1 - c][r] = matrix[n - 1 - r][n - 1 - c]
+            # top-right to bottom-right
+            matrix[n - 1 - r][n - 1 - c] = matrix[c][n - 1 - r]
+            # put the old top-left (temp) to top-right
+            matrix[c][n - 1 - r] = tmp
 
 
 MATRIX1 = [
