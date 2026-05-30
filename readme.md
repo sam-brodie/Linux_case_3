@@ -13,3 +13,5 @@ The code tries to rotate a matrix 90° but it fails, fix it.
 send emmediatly a measege over udp to specific ip&port
 send with a non blocking request a udp message to specific ip&port after X seconds' delay (where X could be any value between 1s and 255s)
 request periodic sending of a udp message to specific ip&port every  X seconds. (where X could be any value between 1s and 255s)
+
+**Implemented in the Ipv4Sender class in task_3/src**
